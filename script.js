@@ -1,8 +1,8 @@
 var boxes = document.querySelectorAll('.card');
 var s = document.querySelector('.rgbspan');
 var colors = generateRandomColor(6);
-var pickedColor = colors[Math.floor(Math.random() * 6)];
-s.textContent = pickedColor;
+var pickedColor = colors[Math.floor(Math.random() * 6)];  
+s.textContent = pickedColor; 
 var playagainbtn = document.querySelector('#playagainbtn');
 var easybtn = document.querySelector('#easybtn');
 var hardbtn = document.querySelector('#hardbtn');
@@ -25,7 +25,7 @@ s.textContent = pickedColor;
 
 for(var i = 0; i < boxes.length; i++) {
 if (colors[i]) {
-    boxes[i].style.background = colors[i];
+    boxes[i].style.background = colors[i];  
 }
 else{
     boxes[i].style.display = 'none';
@@ -73,7 +73,7 @@ boxes[i].addEventListener('click', function() {
         boxes[i].style.background = pickedColor;
     }
    document.querySelector('h1').style.background = pickedColor;
-   statusText.textContent = 'correct!!';
+   statusText.textContent = 'correct!!';  
  } else {
     this.style.background = '#023047';
     statusText.textContent = 'Try Again!';
@@ -83,3 +83,20 @@ boxes[i].addEventListener('click', function() {
 
   });
  }
+
+
+
+
+function generateRandomColor(num) {
+ var arr= [];
+ for (var i = 0; i< num; i++) {
+     arr.push(randomColor());
+ }
+ return arr;
+}
+function randomColor() {
+var r = Math.floor(Math.random() * 256);
+var g = Math.floor(Math.random() * 256);
+var b = Math.floor(Math.random() * 256);
+ return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+}
